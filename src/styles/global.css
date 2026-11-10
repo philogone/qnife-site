@@ -88,29 +88,6 @@ p { margin: 0 0 1em; text-wrap: pretty; max-width: var(--measure); }
 /* Section titre + lien */
 .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
 
-/* Bande de réalisations */
-.works { padding-bottom: clamp(4rem, 12vw, 8rem); }
-.strip { display: flex; gap: 0.75rem; margin: 0; padding: 0 var(--gutter) 1.25rem; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter); scrollbar-color: var(--graphite) transparent; scrollbar-width: thin; overscroll-behavior-x: contain; }
-.strip li { flex: 0 0 min(74vw, 21rem); scroll-snap-align: start; }
-.strip figure { margin: 0; }
-.strip img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--anthracite); }
-.strip figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: 0.7rem; font-size: 0.95rem; }
-.strip figcaption b { font-weight: 700; }
-.strip figcaption span { color: var(--mist); }
-@media (min-width: 60rem) { .strip { padding-inline: max(var(--gutter), calc((100vw - 78rem) / 2 + var(--gutter))); } .strip li { flex-basis: 22rem; } }
-
-/* Atelier */
-.workshop { background: var(--anthracite); padding-block: clamp(4rem, 12vw, 8rem); }
-.workshop .wrap { display: grid; gap: 2.5rem; }
-.workshop p { color: var(--paper); }
-.workshop-pics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; align-items: start; }
-.workshop-pics img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
-.workshop-pics img:last-child { margin-top: 2.5rem; }
-@media (min-width: 52rem) {
-  .workshop .wrap { grid-template-columns: 5fr 6fr; gap: 5rem; align-items: center; }
-  .workshop-pics img:last-child { margin-top: 4rem; }
-}
-
 /* Sur mesure — l'unique section claire */
 .bespoke { background: var(--paper); color: var(--ink); padding-block: clamp(4rem, 12vw, 8rem); }
 .bespoke .wrap { display: grid; gap: 2.5rem; }
@@ -156,3 +133,50 @@ p { margin: 0 0 1em; text-wrap: pretty; max-width: var(--measure); }
   @keyframes rise { from { opacity: 0.001; transform: translateY(14px); } }
 }
 @media (prefers-reduced-motion: reduce) { .seal-ring { animation: none; } html { scroll-behavior: auto; } }
+
+/* Réalisations : le prénom du couteau devient typographie */
+.works { padding-bottom: clamp(4rem, 12vw, 8rem); overflow-x: clip; }
+.mosaic { list-style: none; margin: 0; padding: 0 var(--gutter); display: grid; gap: clamp(3.5rem, 12vw, 9rem); }
+.mosaic figure { position: relative; margin: 0; width: 84%; }
+.mosaic li:nth-child(even) figure { margin-left: auto; }
+.frame { overflow: hidden; background: var(--anthracite); }
+.frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transform: scale(1.12); }
+.mosaic li:nth-child(3n) .frame img { aspect-ratio: 1; }
+.nm { position: absolute; z-index: 2; bottom: -0.12em; left: -4%; font-weight: 700; font-size: clamp(3.25rem, 17vw, 6rem); line-height: 0.9; letter-spacing: -0.035em; color: var(--paper); text-shadow: 0 2px 28px oklch(0.14 0.004 260 / 0.7); pointer-events: none; }
+.mosaic li:nth-child(even) .nm { left: auto; right: -4%; }
+.ct { display: block; margin-top: 0.8rem; color: var(--mist); font-size: 0.95rem; text-align: right; }
+.mosaic li:nth-child(even) .ct { text-align: left; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (min-width: 60rem) {
+  .mosaic { grid-template-columns: repeat(12, 1fr); column-gap: 2rem; padding-inline: max(var(--gutter), calc((100vw - 78rem) / 2 + var(--gutter))); }
+  .mosaic li { grid-column: span 6; }
+  .mosaic li:nth-child(even) { margin-top: 9rem; }
+  .mosaic figure { width: 100%; }
+  .mosaic li:nth-child(3n) .frame img { aspect-ratio: 4 / 5; }
+}
+
+/* Du feu à la lame : panneaux plein écran qui s'empilent */
+.stack { background: var(--ink); }
+.stack-intro { padding-block: clamp(3rem, 8vw, 6rem) clamp(2.5rem, 6vw, 4rem); }
+.stack-intro h2 { margin-bottom: 1rem; }
+.panel { position: sticky; top: 0; min-height: 100svh; display: grid; align-items: end; overflow: hidden; border-top: 1px solid var(--graphite); background: var(--ink); }
+.panel > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, oklch(0.14 0.004 260 / 0.92), oklch(0.14 0.004 260 / 0.35) 45%, oklch(0.14 0.004 260 / 0.1)); }
+.panel-body { position: relative; z-index: 2; padding-block: 3rem 3.5rem; }
+.panel h3 { font-size: clamp(3.25rem, 16vw, 6rem); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 1rem; }
+.panel p { color: var(--paper); font-size: 1.15rem; margin-bottom: 1.5rem; }
+@media (min-width: 60rem) { .panel-body { padding-bottom: 5rem; } .panel p { font-size: 1.3rem; } }
+
+/* Mot-symbole */
+.reach:has(.wordmark) { position: relative; overflow: hidden; padding-bottom: 0; }
+.wordmark { margin-top: clamp(2rem, 6vw, 4rem); font-weight: 700; font-size: 34vw; line-height: 0.74; letter-spacing: -0.04em; color: var(--anthracite); white-space: nowrap; text-align: center; user-select: none; margin-bottom: -0.04em; }
+
+/* Mouvements liés au défilement (progressif) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .frame img { animation: drift linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+    @keyframes drift { from { transform: scale(1.12) translateY(-5%); } to { transform: scale(1.12) translateY(5%); } }
+    .panel > img { animation: settle linear both; animation-timeline: view(); animation-range: entry 0% cover 60%; }
+    @keyframes settle { from { transform: scale(1.18); } to { transform: scale(1); } }
+  }
+}

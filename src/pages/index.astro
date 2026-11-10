@@ -5,9 +5,15 @@ import Seal from '../components/Seal.astro';
 import photos from '../data/photos.json';
 import { site } from '../data/site';
 
-const pick = ['jules', 'gaston', 'igor', 'cyrus', 'auguste', 'basile', 'higonokami', 'come'];
+const pick = ['jules', 'igor', 'cyrus', 'basile', 'auguste', 'higonokami'];
 const works = pick.map((s) => photos.knives.find((k) => k.slug === s)!);
 const labels: Record<string, string> = { table: 'Table', cuisine: 'Cuisine', pliant: 'Pliant', forge: 'Forgé' };
+const steps = [
+  { slug: 'forge', word: 'Forger', text: "La forge à gaz chauffe l'acier à ressort, T7Mo ou XC75, jusqu'au rouge." },
+  { slug: 'etincelles', word: 'Meuler', text: "La lame prend sa forme à la ponceuse à bande, dans une gerbe d'étincelles." },
+  { slug: 'bois', word: 'Façonner', text: "Ébène, hêtre échauffé, érable, olivier : le manche est taillé, ajusté et riveté en laiton." },
+  { slug: 'lame-main', word: 'Affûter', text: "Trempe, révélation de l'acier, polissage et affûtage. Le couteau est prêt à rejoindre votre histoire." },
+];
 const mail = `mailto:${site.email}?subject=${encodeURIComponent('Un couteau sur mesure')}`;
 ---
 <Base
@@ -38,31 +44,33 @@ const mail = `mailto:${site.email}?subject=${encodeURIComponent('Un couteau sur 
       <h2 id="h-works">Réalisations</h2>
       <a class="arrow-link" href="/couteaux/">Tous les couteaux</a>
     </div>
-    <ul class="strip" tabindex="0" aria-label="Quelques couteaux, défilement horizontal">
+    <ul class="mosaic">
       {works.map((k) => (
         <li>
           <figure>
-            <Pic slug={k.slug} sizes="(min-width: 60rem) 22rem, 74vw" />
-            <figcaption><b>{k.name}</b><span>{labels[k.cat]}</span></figcaption>
+            <div class="frame"><Pic slug={k.slug} sizes="(min-width: 60rem) 40rem, 85vw" /></div>
+            <figcaption><span class="nm" aria-hidden="true">{k.name}</span><span class="sr">{k.name}, </span><span class="ct">{labels[k.cat]}</span></figcaption>
           </figure>
         </li>
       ))}
     </ul>
   </section>
 
-  <section class="workshop" aria-labelledby="h-workshop">
-    <div class="wrap">
-      <div>
-        <h2 id="h-workshop">L'atelier</h2>
-        <p style="margin-top:1.5rem">Une forge à gaz, une ponceuse à bande, un établi. Acier à ressort, T7Mo ou XC75 pour la lame ; ébène, hêtre échauffé, bois de rose ou olivier pour le manche ; laiton pour les rivets.</p>
-        <p>Ici, les couteaux ne sont pas parfaits : ils sont faits main, et chacun garde la trace de son bois.</p>
-        <a class="arrow-link" href="/atelier/">Découvrir l'atelier</a>
-      </div>
-      <div class="workshop-pics">
-        <Pic slug="forge" sizes="(min-width: 52rem) 28vw, 45vw" />
-        <Pic slug="etincelles" sizes="(min-width: 52rem) 28vw, 45vw" />
-      </div>
+  <section class="stack" aria-labelledby="h-stack">
+    <div class="wrap stack-intro">
+      <h2 id="h-stack">Du feu à la lame</h2>
+      <p>Toutes les étapes se passent dans le même atelier, à Haubourdin, par la même paire de mains.</p>
     </div>
+    {steps.map((st, i) => (
+      <article class="panel">
+        <Pic slug={st.slug} sizes="100vw" />
+        <div class="wrap panel-body">
+          <h3>{st.word}</h3>
+          <p>{st.text}</p>
+          {i === steps.length - 1 && <a class="btn" href="/atelier/">Découvrir l'atelier</a>}
+        </div>
+      </article>
+    ))}
   </section>
 
   <section class="bespoke" aria-labelledby="h-bespoke">
@@ -89,5 +97,6 @@ const mail = `mailto:${site.email}?subject=${encodeURIComponent('Un couteau sur 
       <a class="reach-mail" href={mail}>{site.email}</a>
       <p>Ou en message sur Instagram : <a href={site.instagram} rel="noopener">{site.instagramHandle}</a></p>
     </div>
+    <div class="wordmark" aria-hidden="true">Qnife</div>
   </section>
 </Base>
