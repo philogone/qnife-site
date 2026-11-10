@@ -114,7 +114,7 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
 
 <style>
   /* neutralise le hero plein écran du CSS global (voile + min-height) */
-  .hero { display: block; min-height: 0; overflow: visible; background: transparent; padding-top: 6rem; padding-bottom: 3rem; }
+  .hero { display: block; min-height: 0; overflow-x: clip; overflow-y: visible; background: transparent; padding-top: 6rem; padding-bottom: 3rem; }
   .hero::after { content: none; }
   .hero-grid { display: grid; gap: 2.5rem; }
   .hero h1 { font-size: clamp(3.4rem, 13vw, 8.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.035em; margin-top: 1.25rem; }
@@ -125,9 +125,9 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
   .cta:hover { background: var(--mist); }
   .cta--ghost { background: transparent; color: var(--paper); border: 1.5px solid var(--paper); }
   .cta--ghost:hover { background: var(--paper); color: var(--ink); }
-  .hero-photo { position: relative; justify-self: center; width: min(88vw, 30rem); }
+  .hero-photo { position: relative; justify-self: center; width: min(88vw, 100%, 30rem); }
   .hero-photo :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 1.75rem; }
-  .seal { position: absolute; right: -1.25rem; bottom: -1.25rem; width: 8.5rem; height: 8.5rem; }
+  .seal { position: absolute; right: -0.75rem; bottom: -1.25rem; width: 8.5rem; height: 8.5rem; }
   .seal-ring { animation: spin 22s linear infinite; transform-origin: 50% 50%; }
   .seal-q { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 3.5rem; color: var(--ink); }
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -168,8 +168,8 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
   .reach h2 { margin-bottom: 0; font-size: clamp(2.2rem, 6vw, 3.75rem); }
   .two-col { display: grid; gap: 2.5rem; }
   @media (min-width: 52rem) {
-    .hero-grid { grid-template-columns: 1.1fr 1fr; align-items: center; gap: 5rem; }
-    .workshop-grid, .two-col { grid-template-columns: 1.1fr 1fr; align-items: center; gap: 5rem; }
+    .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 4rem; }
+    .workshop-grid, .two-col { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 5rem; }
     .bento { grid-template-columns: repeat(4, 1fr); }
   }
 </style>

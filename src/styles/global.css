@@ -21,6 +21,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-color: var(--graphite) var(--ink); scrollbar-width: thin; }
+html, body { overflow-x: clip; }
 body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--sans); font-weight: 300; font-size: 1.0625rem; line-height: 1.65; caret-color: var(--paper); -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-underline-offset: 0.3em; text-decoration-thickness: 1px; }
