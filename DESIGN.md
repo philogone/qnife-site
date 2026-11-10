@@ -42,7 +42,7 @@ spacing:
   section: "clamp(4rem, 12vw, 8rem)"
 components:
   button-primary:
-    backgroundColor: "{colors.mist}"
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
     padding: "0.9rem 1.7rem"
@@ -91,8 +91,8 @@ Une palette de nuit à cinq valeurs, tintée froid (teinte 260), plus un blanc c
 ### Neutral
 - **Encre d'atelier** (oklch(0.14 0.004 260)): fond de page et texte sur surface claire.
 - **Anthracite de la forge** (oklch(0.23 0.006 260)): fonds de sections secondaires et de cartes avant chargement de la photo.
-- **Graphite** (oklch(0.34 0.006 260)): filets, séparateurs, ombre décalée de la pastille.
-- **Brume d'acier** (oklch(0.74 0.005 260)): texte secondaire, bouton principal sur fond sombre.
+- **Graphite** (oklch(0.34 0.006 260)): filets et séparateurs.
+- **Brume d'acier** (oklch(0.74 0.005 260)): texte secondaire, survol du bouton principal.
 - **Papier craie** (oklch(0.97 0.004 90)): texte principal sur sombre, fond de la seule section claire (tarifs) et du bandeau.
 
 ### Named Rules
@@ -122,7 +122,7 @@ Conteneur de 78rem, gouttière fluide (1.25rem à 4rem), sections séparées par
 
 ## Elevation & Depth
 
-Plat par défaut : la profondeur vient du contraste entre aplats (encre, anthracite, papier) et de la rotation légère des cartes, pas d'ombres. Seule exception existante : l'ombre décalée graphite de la pastille d'accueil.
+Plat par défaut : la profondeur vient du contraste entre aplats (encre, anthracite, papier) et de la rotation légère des cartes, pas d'ombres. Aucune exception : la pastille d'accueil n'a pas d'ombre non plus.
 
 ### Named Rules
 **The Flat-At-Rest Rule.** Aucune ombre sur une surface au repos ; le survol relève la carte (translation, rotation à 0), il ne l'ombre pas.
@@ -135,7 +135,7 @@ Arrondis généreux : cartes 1.25rem, panneaux 1.75rem, tous les boutons, chips 
 
 ### Buttons
 - **Shape:** pilule (999px), hauteur 3.5rem.
-- **Primary:** fond brume d'acier, texte encre ; sur fond clair, fond encre et texte papier.
+- **Primary:** fond papier craie, texte encre ; sur fond clair, fond encre et texte papier. Survol : fond brume d'acier.
 - **Ghost:** transparent, filet 1.5px papier ; au survol il se remplit.
 
 ### Cards / Containers

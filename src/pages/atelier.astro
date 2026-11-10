@@ -29,7 +29,7 @@ import Pic from '../components/Pic.astro';
 </Base>
 <style>
   .shots { display: grid; gap: 0.75rem; grid-template-columns: 1fr 1fr; padding-bottom: 2rem; }
-  .shots :global(img) { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .shots :global(img) { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 1.25rem; }
   .shots :global(.third) { grid-column: 1 / -1; aspect-ratio: 16 / 10; object-position: 50% 40%; }
   @media (min-width: 52rem) { .shots { grid-template-columns: repeat(3, 1fr); } .shots :global(.third) { grid-column: auto; aspect-ratio: 3 / 4; } }
 </style>

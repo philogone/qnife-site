@@ -38,10 +38,11 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
     </div>
   </section>
 
-  <section class="marquee-band" aria-label="Slogans">
+  <section class="marquee-band" aria-label="Ce qui fait Qnife">
+    <ul class="sr">{marquee.map((m) => <li>{m}</li>)}</ul>
     <div class="marquee" aria-hidden="true">
       {[0, 1].map(() => (
-        <span>{marquee.map((m) => <>{m} ✦ </>)}</span>
+        <span>{marquee.map((m) => <>{m}<i class="dot"></i></>)}</span>
       ))}
     </div>
   </section>
@@ -119,9 +120,9 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
   .hero h1 { font-size: clamp(3.4rem, 13vw, 8.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.035em; margin-top: 1.25rem; }
   .lede { margin-top: 1.5rem; font-size: 1.2rem; max-width: 32ch; }
   .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .sticker { display: inline-block; transform: rotate(-4deg); background: var(--paper); color: var(--ink); font-weight: 700; font-size: 0.9rem; padding: 0.35rem 0.9rem; border-radius: 0.4rem; box-shadow: 4px 4px 0 var(--graphite); }
-  .cta { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 3.5rem; padding: 0.9rem 1.7rem; background: var(--mist); color: var(--ink); font-weight: 700; text-decoration: none; border-radius: 999px; transition: background-color 0.25s var(--ease), color 0.25s var(--ease); }
-  .cta:hover { background: var(--paper); }
+  .sticker { display: inline-block; transform: rotate(-4deg); background: var(--paper); color: var(--ink); font-weight: 700; font-size: 0.9rem; padding: 0.35rem 0.9rem; border-radius: 0.4rem; }
+  .cta { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 3.5rem; padding: 0.9rem 1.7rem; background: var(--paper); color: var(--ink); font-weight: 700; text-decoration: none; border-radius: 999px; transition: background-color 0.25s var(--ease), color 0.25s var(--ease); }
+  .cta:hover { background: var(--mist); }
   .cta--ghost { background: transparent; color: var(--paper); border: 1.5px solid var(--paper); }
   .cta--ghost:hover { background: var(--paper); color: var(--ink); }
   .hero-photo { position: relative; justify-self: center; width: min(88vw, 30rem); }
@@ -133,6 +134,7 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
   .marquee-band { background: var(--paper); color: var(--ink); overflow: hidden; padding-block: 1.1rem; }
   .marquee { display: flex; width: max-content; animation: slide 28s linear infinite; }
   .marquee span { font-weight: 700; font-size: clamp(1.8rem, 5vw, 3.2rem); letter-spacing: -0.02em; white-space: nowrap; padding-right: 1.5rem; }
+  .dot { display: inline-block; width: 0.45em; height: 0.45em; margin-inline: 1.5rem; border-radius: 50%; background: currentColor; vertical-align: 0.12em; }
   @keyframes slide { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .marquee, .seal-ring { animation: none; } }
   .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 2rem; padding-top: clamp(4rem, 12vw, 7rem); }
