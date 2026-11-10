@@ -112,7 +112,9 @@ const marquee = ['Forgé à la main', 'Façonné à Haubourdin', "Signé d'un pr
 </Base>
 
 <style>
-  .hero { padding-top: 6rem; padding-bottom: 3rem; }
+  /* neutralise le hero plein écran du CSS global (voile + min-height) */
+  .hero { display: block; min-height: 0; overflow: visible; background: transparent; padding-top: 6rem; padding-bottom: 3rem; }
+  .hero::after { content: none; }
   .hero-grid { display: grid; gap: 2.5rem; }
   .hero h1 { font-size: clamp(3.4rem, 13vw, 8.5rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.035em; margin-top: 1.25rem; }
   .lede { margin-top: 1.5rem; font-size: 1.2rem; max-width: 32ch; }
