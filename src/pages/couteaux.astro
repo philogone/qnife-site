@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import photos from '../data/photos.json';
+const groups = [
+  { cat: 'table', title: 'Couteaux de table' },
+  { cat: 'cuisine', title: 'Couteaux de cuisine' },
+  { cat: 'pliant', title: 'Couteaux pliants' },
+  { cat: 'forge', title: 'Couteaux forgés' },
+];
+---
+<Base solid title="Couteaux artisanaux : galerie" description="Galerie des couteaux Qnife : table, cuisine, pliants et forgés, faits main à Haubourdin. Chaque pièce est unique.">
+  <div class="wrap page-head">
+    <h1>Les couteaux</h1>
+    <p class="muted">Chaque couteau est une pièce unique, forgée et façonnée à la main. Les modèles portent un prénom ; le vôtre en portera peut-être un autre.</p>
+  </div>
+  {groups.map((g) => (
+    <section class="gallery wrap" aria-labelledby={`g-${g.cat}`}>
+      <h2 id={`g-${g.cat}`}>{g.title}</h2>
+      <ul>
+        {photos.knives.filter((k) => k.cat === g.cat).map((k) => (
+          <li><figure><Pic slug={k.slug} sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 45vw, 90vw" /><figcaption>{k.name}</figcaption></figure></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+  <section class="reach"><div class="wrap">
+    <h2>Un couteau qui vous ressemble</h2>
+    <p>Aucun modèle ne vous convient tout à fait ? Je le crée avec vous.</p>
+    <a class="btn" href="/sur-mesure/">Comment commander</a>
+  </div></section>
+</Base>
+<style>
+  .gallery { padding-bottom: clamp(3rem, 8vw, 5rem); }
+  .gallery h2 { font-size: clamp(1.5rem, 5vw, 2.2rem); margin-bottom: 1.25rem; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { ul { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 60rem) { ul { grid-template-columns: repeat(3, 1fr); } }
+  figure { margin: 0; }
+  img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--anthracite); }
+  figcaption { padding-top: 0.6rem; font-weight: 700; }
+</style>

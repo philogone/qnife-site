@@ -1,0 +1,374 @@
+{
+ "knives": [
+  {
+   "slug": "gabriel",
+   "alt": "Couteau Gabriel, lame inox et manche en bois sur planche",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "table",
+   "name": "Gabriel"
+  },
+  {
+   "slug": "jules",
+   "alt": "Couteau Jules posé sur une assiette ancienne",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "table",
+   "name": "Jules"
+  },
+  {
+   "slug": "jules-bois-rose",
+   "alt": "Trio de couteaux Jules, manches en bois de rose",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "table",
+   "name": "Jules"
+  },
+  {
+   "slug": "table-fete",
+   "alt": "Huit couteaux de table sur un set tressé",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "table",
+   "name": "Couteaux de table"
+  },
+  {
+   "slug": "saucisson",
+   "alt": "Couteau à saucisson, lame forgée et manche en hêtre échauffé",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "table",
+   "name": "Couteau à saucisson"
+  },
+  {
+   "slug": "gaston",
+   "alt": "Couteau de cuisine Gaston sur planche avec citron vert",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "cuisine",
+   "name": "Gaston"
+  },
+  {
+   "slug": "basile",
+   "alt": "Couteau de cuisine Basile devant un mur de briques et des herbes",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "cuisine",
+   "name": "Basile"
+  },
+  {
+   "slug": "igor",
+   "alt": "Couteau de cuisine forgé Igor à côté de pommes",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1213,
+   "h": 900,
+   "cat": "forge",
+   "name": "Igor"
+  },
+  {
+   "slug": "gyuto",
+   "alt": "Gyuto revisité avec manche en bois sur tissu",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "cuisine",
+   "name": "Gyuto"
+  },
+  {
+   "slug": "cuisine-macassar",
+   "alt": "Couteau de cuisine forgé, manche en ébène de macassar",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "cuisine",
+   "name": "Couteau de cuisine"
+  },
+  {
+   "slug": "auguste",
+   "alt": "Couteau Auguste, manche en ébène grenadille",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "forge",
+   "name": "Auguste"
+  },
+  {
+   "slug": "come",
+   "alt": "Couteau Côme, lame forgée et manche en érable stabilisé noir",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1800,
+   "cat": "forge",
+   "name": "Côme"
+  },
+  {
+   "slug": "saucisson-forge",
+   "alt": "Couteau forgé à saucisson, mitre en laiton et manche en gaïac",
+   "widths": [
+    480,
+    800,
+    1080
+   ],
+   "w": 1080,
+   "h": 1080,
+   "cat": "forge",
+   "name": "Couteau forgé"
+  },
+  {
+   "slug": "raoul",
+   "alt": "Couteau Raoul sur fond de paille tressée",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "cuisine",
+   "name": "Raoul"
+  },
+  {
+   "slug": "cyrus",
+   "alt": "Couteau pliant Cyrus en chêne",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "pliant",
+   "name": "Cyrus"
+  },
+  {
+   "slug": "louis",
+   "alt": "Couteau pliant Louis, manche en bois, sur torchon",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1800,
+   "cat": "pliant",
+   "name": "Louis"
+  },
+  {
+   "slug": "higonokami",
+   "alt": "Higonokami personnalisé en laiton gravé",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "pliant",
+   "name": "Higonokami"
+  },
+  {
+   "slug": "pliant-ziricote",
+   "alt": "Couteau pliant à cran forcé en ziricote",
+   "widths": [
+    480,
+    800,
+    1080
+   ],
+   "w": 1080,
+   "h": 1080,
+   "cat": "pliant",
+   "name": "Pliant ziricote"
+  },
+  {
+   "slug": "roger",
+   "alt": "Couteau pliant Roger posé sur une souche",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 1440,
+   "h": 1440,
+   "cat": "pliant",
+   "name": "Roger"
+  }
+ ],
+ "atelier": [
+  {
+   "slug": "hero-chef",
+   "alt": "Le coutelier présente un couteau de chef dans son atelier",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 4051,
+   "h": 6076
+  },
+  {
+   "slug": "forge",
+   "alt": "La forge à gaz incandescente",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 2624,
+   "h": 3936
+  },
+  {
+   "slug": "etincelles",
+   "alt": "Étincelles pendant le meulage d'une lame",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3061,
+   "h": 4591
+  },
+  {
+   "slug": "martelage",
+   "alt": "Une lame chauffée au rouge sur l'enclume",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3490,
+   "h": 5235
+  },
+  {
+   "slug": "bois",
+   "alt": "Un bloc de bois pour manche tenu en main",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3589,
+   "h": 5384
+  },
+  {
+   "slug": "lame-main",
+   "alt": "Une lame brute présentée dans la paume",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3210,
+   "h": 4815
+  },
+  {
+   "slug": "portrait",
+   "alt": "Portrait du coutelier dans l'atelier, bras croisés",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3461,
+   "h": 5191
+  },
+  {
+   "slug": "ponceuse",
+   "alt": "Passage d'une lame sur la ponceuse à bande",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3630,
+   "h": 5445
+  },
+  {
+   "slug": "etabli",
+   "alt": "Le coutelier à l'établi, concentré sur un manche",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3730,
+   "h": 5595
+  },
+  {
+   "slug": "detail-lame",
+   "alt": "Détail d'une lame en cours de finition",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3885,
+   "h": 5827
+  },
+  {
+   "slug": "chef-manche",
+   "alt": "Un manche en os blanc fixé sur une lame",
+   "widths": [
+    480,
+    800,
+    1200
+   ],
+   "w": 3364,
+   "h": 5046
+  }
+ ]
+}

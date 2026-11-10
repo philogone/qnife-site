@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props { title: string; description: string; image?: string; solid?: boolean; noindex?: boolean }
+const { title, description, image = '/og-default.jpg', solid = false, noindex = false } = Astro.props;
+const path = Astro.url.pathname;
+const canonical = new URL(path, site.url).href;
+const ogImage = new URL(image, site.url).href;
+const fullTitle = path === '/' ? `${site.name} — ${site.descriptor}` : `${title} — ${site.name}`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#atelier`,
+  name: 'Qnife Atelier',
+  description: 'Coutelier artisan à Haubourdin (Nord) : couteaux de table, de cuisine, pliants et forgés, créés à la main et sur mesure.',
+  url: site.url,
+  image: ogImage,
+  email: site.email,
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    postalCode: site.address.zip,
+    addressLocality: site.address.city,
+    addressCountry: site.address.country,
+  },
+  areaServed: { '@type': 'AdministrativeArea', name: 'Hauts-de-France' },
+  sameAs: [site.instagram],
+};
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d0d0e" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/mostra-nuova-bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/mostra-nuova-light.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Qnife" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class={`site-header${solid ? ' site-header--solid' : ''}`}>
+      <div class="wrap">
+        <a class="logo" href="/" aria-label="Qnife, accueil">Q<span>nife</span></a>
+        <nav class="nav" aria-label="Navigation principale">
+          {site.nav.map((l) => <a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="contenu"><slot /></main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <address>
+          <strong>Qnife Atelier</strong> · {site.descriptor}<br />
+          {site.address.street}, {site.address.zip} {site.address.city}<br />
+          <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.instagram} rel="noopener">{site.instagramHandle}</a>
+        </address>
+        <ul>
+          {site.nav.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          <li><a href="/mentions-legales/">Mentions légales</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

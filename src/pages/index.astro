@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+import Seal from '../components/Seal.astro';
+import photos from '../data/photos.json';
+import { site } from '../data/site';
+
+const pick = ['jules', 'gaston', 'igor', 'cyrus', 'auguste', 'basile', 'higonokami', 'come'];
+const works = pick.map((s) => photos.knives.find((k) => k.slug === s)!);
+const labels: Record<string, string> = { table: 'Table', cuisine: 'Cuisine', pliant: 'Pliant', forge: 'Forgé' };
+const mail = `mailto:${site.email}?subject=${encodeURIComponent('Un couteau sur mesure')}`;
+---
+<Base
+  title="Coutelier artisan à Haubourdin"
+  description="Qnife, atelier de coutellerie à Haubourdin (Hauts-de-France) : couteaux de table, de cuisine, pliants et forgés, faits main et sur mesure. Votre histoire, votre couteau."
+>
+  <section class="hero" aria-labelledby="h1">
+    <Pic slug="hero-chef" loading="eager" fetchpriority="high" sizes="100vw" alt="Le coutelier tient un couteau de chef dans son atelier, lumière chaude de la forge" />
+    <div class="wrap hero-body">
+      <h1 id="h1">Votre histoire, votre couteau.</h1>
+      <p class="hero-lede">Coutelier des Hauts-de-France. Chaque lame est forgée et façonnée à la main, à Haubourdin.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/sur-mesure/">Demander un couteau sur mesure</a>
+        <a class="arrow-link" href="/couteaux/">Voir les couteaux</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
+      <p class="intro-text">Un couteau <strong>forgé, façonné et signé</strong> par une seule paire de mains. Il porte un prénom, puis il rejoint votre table, votre cuisine ou votre poche.</p>
+      <Seal />
+    </div>
+  </section>
+
+  <section class="works" aria-labelledby="h-works">
+    <div class="wrap section-head">
+      <h2 id="h-works">Réalisations</h2>
+      <a class="arrow-link" href="/couteaux/">Tous les couteaux</a>
+    </div>
+    <ul class="strip" tabindex="0" aria-label="Quelques couteaux, défilement horizontal">
+      {works.map((k) => (
+        <li>
+          <figure>
+            <Pic slug={k.slug} sizes="(min-width: 60rem) 22rem, 74vw" />
+            <figcaption><b>{k.name}</b><span>{labels[k.cat]}</span></figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="workshop" aria-labelledby="h-workshop">
+    <div class="wrap">
+      <div>
+        <h2 id="h-workshop">L'atelier</h2>
+        <p style="margin-top:1.5rem">Une forge à gaz, une ponceuse à bande, un établi. Acier à ressort, T7Mo ou XC75 pour la lame ; ébène, hêtre échauffé, bois de rose ou olivier pour le manche ; laiton pour les rivets.</p>
+        <p>Ici, les couteaux ne sont pas parfaits : ils sont faits main, et chacun garde la trace de son bois.</p>
+        <a class="arrow-link" href="/atelier/">Découvrir l'atelier</a>
+      </div>
+      <div class="workshop-pics">
+        <Pic slug="forge" sizes="(min-width: 52rem) 28vw, 45vw" />
+        <Pic slug="etincelles" sizes="(min-width: 52rem) 28vw, 45vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bespoke" aria-labelledby="h-bespoke">
+    <div class="wrap">
+      <div>
+        <h2 id="h-bespoke">Un couteau à votre histoire</h2>
+        <p style="margin-top:1.5rem">Un cadeau, une table à équiper, une cuisine qui mérite mieux : racontez-moi, je dessine et je fabrique le couteau qui va avec.</p>
+        <a class="btn btn--ink" href="/sur-mesure/">Comment commander</a>
+      </div>
+      <div>
+        <ul class="prices">
+          {site.prices.map((p) => (
+            <li><span class="what">{p.label}</span><span class="from"><small>dès</small>{p.from} €</span></li>
+          ))}
+        </ul>
+        <p class="fineprint">Prix indicatifs, selon les matériaux et les finitions. Délai communiqué avec le devis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reach" aria-labelledby="h-reach">
+    <div class="wrap">
+      <h2 id="h-reach">Écrivez-moi</h2>
+      <a class="reach-mail" href={mail}>{site.email}</a>
+      <p>Ou en message sur Instagram : <a href={site.instagram} rel="noopener">{site.instagramHandle}</a></p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,22 @@
+---
+import photos from '../data/photos.json';
+interface Props { slug: string; sizes?: string; loading?: 'lazy' | 'eager'; class?: string; alt?: string; fetchpriority?: 'high' | 'low' | 'auto' }
+const { slug, sizes = '100vw', loading = 'lazy', class: cls, alt, fetchpriority } = Astro.props;
+const p = [...photos.knives, ...photos.atelier].find((x) => x.slug === slug);
+if (!p) throw new Error(`Photo inconnue : ${slug}`);
+const srcset = p.widths.map((w) => `/img/${slug}-${w}.webp ${w}w`).join(', ');
+const largest = p.widths[p.widths.length - 1];
+const h = Math.round((p.h * largest) / p.w);
+---
+<img
+  src={`/img/${slug}-${largest}.webp`}
+  srcset={srcset}
+  sizes={sizes}
+  width={largest}
+  height={h}
+  alt={alt ?? p.alt}
+  loading={loading}
+  decoding="async"
+  fetchpriority={fetchpriority}
+  class={cls}
+/>

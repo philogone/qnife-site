@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+const mail = `mailto:${site.email}?subject=${encodeURIComponent('Un couteau sur mesure')}`;
+---
+<Base solid title="Couteau sur mesure : comment commander" description="Commander un couteau sur mesure chez Qnife (Haubourdin) : comment ça se passe, prix à partir de 60 €, contact par e-mail ou Instagram.">
+  <div class="wrap page-head">
+    <h1>Sur mesure</h1>
+    <p class="muted">Votre histoire, votre couteau : un modèle pensé pour votre usage, votre main, votre table.</p>
+  </div>
+  <div class="wrap prose">
+    <h2>Comment commander</h2>
+    <ol class="steps">
+      <li><h3>Vous me racontez</h3><p>À quoi servira le couteau, pour qui, dans quelle cuisine ou quelle poche. Une photo ou un croquis aide, mais n'est pas obligatoire.</p></li>
+      <li><h3>Nous choisissons</h3><p>Type de couteau, acier, bois du manche, finitions. Je vous envoie un devis avec le prix et le délai prévu.</p></li>
+      <li><h3>Je le fabrique</h3><p>Forge, trempe, ponçage, manche, affûtage. Je vous donne des nouvelles en cours de route.</p></li>
+      <li><h3>Il vous est remis</h3><p>Remis en main propre à Haubourdin ou expédié, selon ce qui vous arrange.</p></li>
+    </ol>
+    <h2>Prix indicatifs</h2>
+    <ul class="prices">
+      {site.prices.map((p) => <li><span class="what">{p.label}</span><span class="from"><small>dès</small>{p.from} €</span></li>)}
+    </ul>
+    <p class="fineprint muted">Le prix final dépend des matériaux, de la taille et des finitions. Le délai dépend de la file de commandes : il est communiqué avec le devis.</p>
+    <p style="margin-top:2.5rem"><a class="btn" href={mail}>Écrire à {site.email}</a></p>
+    <p class="muted">Vous préférez Instagram ? Écrivez à <a href={site.instagram} rel="noopener">{site.instagramHandle}</a>.</p>
+  </div>
+</Base>
+<style>
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.75rem; max-width: var(--measure); }
+  .steps h3 { margin: 0 0 0.35rem; }
+  .steps p { margin: 0; color: var(--mist); }
+  .prices { border-top-color: var(--graphite); padding: 0; list-style: none; max-width: 40rem; }
+  .prices li { border-bottom-color: var(--graphite); }
+</style>

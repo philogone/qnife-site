@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base solid noindex title="Mentions légales" description="Mentions légales du site qnife.fr : éditeur, hébergeur, données personnelles.">
+  <div class="wrap page-head"><h1>Mentions légales</h1></div>
+  <div class="wrap prose">
+    <h2>Éditeur du site</h2>
+    <p>Qnife Atelier, {site.address.street}, {site.address.zip} {site.address.city}.<br />
+    E-mail : <a href={`mailto:${site.email}`}>{site.email}</a><br />
+    Responsable de la publication : <mark>À compléter (nom)</mark><br />
+    SIRET : <mark>À compléter</mark></p>
+    <h2>Hébergement</h2>
+    <p>GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+    <h2>Données personnelles et cookies</h2>
+    <p>Ce site ne dépose aucun cookie et n'utilise aucun traceur. Il ne collecte aucune donnée personnelle. Si vous m'écrivez par e-mail ou par Instagram, vos messages ne servent qu'à répondre à votre demande.</p>
+    <h2>Propriété intellectuelle</h2>
+    <p>Les photographies, textes, logo et créations présents sur ce site sont la propriété de Qnife Atelier. Toute reproduction sans accord préalable est interdite.</p>
+  </div>
+</Base>
+<style>mark { background: var(--paper); color: var(--ink); padding: 0 0.3em; }</style>

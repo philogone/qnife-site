@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Pic from '../components/Pic.astro';
+---
+<Base solid title="L'atelier : démarche, matériaux, savoir-faire" description="Dans l'atelier Qnife à Haubourdin : forge à gaz, ponceuse à bande, acier à ressort, bois précieux. Un coutelier, des couteaux faits main.">
+  <div class="wrap page-head">
+    <h1>L'atelier</h1>
+    <p class="muted">La coutellerie n'est pas mon métier principal. C'est un second métier, mené avec passion et avec le temps qu'il faut.</p>
+  </div>
+  <div class="wrap shots">
+    <Pic slug="portrait" sizes="(min-width: 52rem) 30vw, 90vw" />
+    <Pic slug="martelage" sizes="(min-width: 52rem) 30vw, 90vw" />
+    <Pic slug="etabli" sizes="(min-width: 52rem) 30vw, 90vw" class="third" />
+  </div>
+  <div class="wrap prose">
+    <h2>La démarche</h2>
+    <p>Un couteau se choisit pour ce qu'on en fait et pour l'histoire qu'on y met. Je discute avec vous de l'usage, de la main, de la table, puis je dessine la lame et je choisis le bois.</p>
+    <p>Ici, les couteaux ne sont pas parfaits : ils sont faits main, et chacun garde la trace de son bois et de son feu.</p>
+    <h2>Les matériaux</h2>
+    <ul>
+      <li>Aciers : acier à ressort, T7Mo, XC75, acier au carbone ; inox pour les couteaux de table et de cuisine du quotidien.</li>
+      <li>Manches : ébène (grenadille, macassar, gabon), hêtre échauffé, érable, olivier, bois de rose, selon le couteau.</li>
+      <li>Montage : rivets et mitres en laiton, maillechort ou cuivre.</li>
+    </ul>
+    <h2>Le savoir-faire</h2>
+    <p>Forge à gaz, découpe, ponçage à la bande, trempe, révélation de l'acier, guillochage à la lime, façonnage du manche et finition : toutes les étapes se passent dans le même atelier, à Haubourdin.</p>
+    <p><a class="btn" href="/sur-mesure/">Demander un couteau sur mesure</a></p>
+  </div>
+</Base>
+<style>
+  .shots { display: grid; gap: 0.75rem; grid-template-columns: 1fr 1fr; padding-bottom: 2rem; }
+  .shots :global(img) { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .shots :global(.third) { grid-column: 1 / -1; aspect-ratio: 16 / 10; object-position: 50% 40%; }
+  @media (min-width: 52rem) { .shots { grid-template-columns: repeat(3, 1fr); } .shots :global(.third) { grid-column: auto; aspect-ratio: 3 / 4; } }
+</style>

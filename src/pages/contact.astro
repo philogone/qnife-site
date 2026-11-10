@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+const mail = `mailto:${site.email}`;
+---
+<Base solid title="Contact" description="Contacter Qnife, coutelier à Haubourdin (59320) : e-mail contact@qnife.fr ou message sur Instagram @qnifeatelier.">
+  <div class="wrap page-head">
+    <h1>Contact</h1>
+    <p class="muted">Une question, un projet de couteau, une demande de devis : écrivez-moi, je réponds personnellement.</p>
+  </div>
+  <div class="wrap prose">
+    <h2>Par e-mail</h2>
+    <p><a class="big" href={mail}>{site.email}</a></p>
+    <h2>Sur Instagram</h2>
+    <p><a class="big" href={site.instagram} rel="noopener">{site.instagramHandle}</a></p>
+    <h2>À l'atelier</h2>
+    <address>{site.address.street}<br />{site.address.zip} {site.address.city}</address>
+  </div>
+</Base>
+<style>
+  .big { font-size: clamp(1.5rem, 6vw, 2.5rem); font-weight: 700; letter-spacing: -0.02em; word-break: break-word; }
+  address { font-style: normal; font-size: 1.2rem; }
+</style>
