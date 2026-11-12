@@ -40,7 +40,7 @@ const year = new Date().getFullYear();
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0d0d0e" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; connect-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'" />}
+    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'none'; connect-src 'self'; manifest-src 'none'; base-uri 'none'; form-action 'none'" />}
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
