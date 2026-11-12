@@ -21,7 +21,6 @@ const jsonLd = {
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: site.address.street,
     postalCode: site.address.zip,
     addressLocality: site.address.city,
     addressCountry: site.address.country,
@@ -76,7 +75,7 @@ const year = new Date().getFullYear();
       <div class="wrap">
         <address>
           <strong>Qnife Atelier</strong> · {site.descriptor}<br />
-          {site.address.street}, {site.address.zip} {site.address.city}<br />
+          {site.address.zip} {site.address.city}<br />
           <a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.instagram} rel="noopener noreferrer">{site.instagramHandle}</a>
         </address>
         <ul>

@@ -6,7 +6,7 @@ export const site = {
   email: 'contact@qnife.fr',
   instagram: 'https://www.instagram.com/qnifeatelier/',
   instagramHandle: '@qnifeatelier',
-  address: { street: '91 rue Auguste Potié', zip: '59320', city: 'Haubourdin', country: 'FR' },
+  address: { zip: '59320', city: 'Haubourdin', country: 'FR' },
   prices: [
     { label: 'Couteau de table', from: 60 },
     { label: 'Couteau de cuisine, type chef', from: 120 },
