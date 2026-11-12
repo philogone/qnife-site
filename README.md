@@ -13,3 +13,11 @@ npm run build    # génère dist/
 - Contenu éditable : `src/data/site.ts` (coordonnées, prix), pages dans `src/pages/`.
 - Domaine : `public/CNAME` = qnife.fr. Le sous-domaine `tool.qnife.fr` reste libre pour KnifeForge.
 - Aucun cookie, aucun traceur.
+
+## Design figé
+
+- Référence écrite : `DESIGN.md` (couleurs, typo, formes, interdits). Version validée : tag `v1.0-design`.
+- Référence visuelle : `tests/visual/*.png` (7 pages x mobile et bureau).
+- Avant toute publication : `npm run build && npm run visual` doit répondre « Design identique aux références ».
+- Changement de design voulu : modifier, puis `npm run visual:update`, relire les captures, committer.
+- Icônes : `python scripts/make-icons.py`.

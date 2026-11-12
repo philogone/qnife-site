@@ -11,3 +11,4 @@ assets-source/
 graphify-out/
 PRODUCT.md
 .impeccable/
+tests/visual/.actual/
