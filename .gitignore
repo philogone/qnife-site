@@ -9,3 +9,5 @@ assets-source/
 .env
 .claude/
 graphify-out/
+PRODUCT.md
+.impeccable/
