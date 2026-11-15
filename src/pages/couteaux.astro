@@ -1,22 +1,19 @@
 ---
+import { getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import photos from '../data/photos.json';
-const groups = [
-  { cat: 'table', title: 'Couteaux de table' },
-  { cat: 'cuisine', title: 'Couteaux de cuisine' },
-  { cat: 'pliant', title: 'Couteaux pliants' },
-  { cat: 'forge', title: 'Couteaux forgés' },
-];
+
+const t = (await getEntry('pages', 'couteaux'))!.data;
 ---
-<Base solid title="Couteaux artisanaux : galerie" description="Galerie des couteaux Qnife : table, cuisine, pliants et forgés, faits main à Haubourdin. Chaque pièce est unique.">
+<Base solid title={t.title} description={t.description}>
   <div class="wrap page-head">
-    <h1>Les couteaux</h1>
-    <p class="muted">Chaque couteau est une pièce unique, forgée et façonnée à la main. Les modèles portent un prénom ; le vôtre en portera peut-être un autre.</p>
+    <h1>{t.titre}</h1>
+    <p class="muted">{t.intro}</p>
   </div>
-  {groups.map((g) => (
+  {t.groupes.map((g) => (
     <section class="gallery wrap" aria-labelledby={`g-${g.cat}`}>
-      <h2 id={`g-${g.cat}`}>{g.title}</h2>
+      <h2 id={`g-${g.cat}`}>{g.titre}</h2>
       <ul>
         {photos.knives.filter((k) => k.cat === g.cat).map((k) => (
           <li><figure><Pic slug={k.slug} sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 45vw, 90vw" /><figcaption>{k.name}</figcaption></figure></li>
@@ -25,9 +22,9 @@ const groups = [
     </section>
   ))}
   <section class="reach"><div class="wrap">
-    <h2>Un couteau qui vous ressemble</h2>
-    <p>Aucun modèle ne vous convient tout à fait ? Je le crée avec vous.</p>
-    <a class="btn" href="/sur-mesure/">Comment commander</a>
+    <h2>{t.reach.titre}</h2>
+    <p>{t.reach.texte}</p>
+    <a class="btn" href="/sur-mesure/">{t.reach.cta}</a>
   </div></section>
 </Base>
 <style>

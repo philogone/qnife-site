@@ -5,5 +5,7 @@ export default defineConfig({
   site: 'https://qnife.fr',
   output: 'static',
   trailingSlash: 'always',
+  // Garde les apostrophes droites (') telles qu'écrites dans les textes Markdown.
+  markdown: { smartypants: false },
   integrations: [sitemap({ filter: (page) => !page.includes('mentions-legales') })],
 });

@@ -1,22 +1,15 @@
 ---
+import { getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { site } from '../data/site';
+
+const entry = await getEntry('pages', 'mentions-legales');
+if (!entry) throw new Error('Texte manquant : src/content/pages/mentions-legales.md');
+const { Content } = await render(entry);
 ---
-<Base solid noindex title="Mentions légales" description="Mentions légales du site qnife.fr : éditeur, hébergeur, données personnelles.">
-  <div class="wrap page-head"><h1>Mentions légales</h1></div>
+<Base solid noindex title={entry.data.title} description={entry.data.description}>
+  <div class="wrap page-head"><h1>{entry.data.title}</h1></div>
   <div class="wrap prose">
-    <h2>Éditeur du site</h2>
-    <p>Qnife, atelier de coutellerie artisanale, {site.address.zip} {site.address.city}.<br />
-    Contact : <a href={`mailto:${site.email}`}>{site.email}</a><br />
-    Responsable de la publication : Philogone Quenette</p>
-    <h2>Statut du projet</h2>
-    <p>Ce site présente un projet artisanal en phase de test. Les tarifs affichés sont indicatifs et ne constituent pas une offre ferme : tout couteau fait l'objet d'un échange puis d'un devis avant fabrication.</p>
-    <h2>Hébergement</h2>
-    <p>GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
-    <h2>Données personnelles et cookies</h2>
-    <p>Ce site ne dépose aucun cookie et n'utilise aucun traceur. Il ne collecte aucune donnée personnelle. Si vous m'écrivez par e-mail ou par Instagram, vos messages ne servent qu'à répondre à votre demande.</p>
-    <h2>Propriété intellectuelle</h2>
-    <p>Les photographies, textes, logo et créations présents sur ce site sont la propriété de Qnife Atelier. Toute reproduction sans accord préalable est interdite.</p>
+    <Content />
   </div>
 </Base>
 <style>mark { background: var(--paper); color: var(--ink); padding: 0 0.3em; }</style>

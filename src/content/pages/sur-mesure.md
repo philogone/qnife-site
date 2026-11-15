@@ -1,0 +1,20 @@
+---
+title: "Couteau sur mesure : comment commander"
+description: "Commander un couteau sur mesure chez Qnife (Haubourdin) : comment ça se passe, prix à partir de 60 €, contact par e-mail ou Instagram."
+titre: "Sur mesure"
+intro: "Votre histoire, votre couteau : un modèle pensé pour votre usage, votre main, votre table."
+titre_etapes: "Comment commander"
+etapes:
+  - titre: "Vous me racontez"
+    texte: "À quoi servira le couteau, pour qui, dans quelle cuisine ou quelle poche. Une photo ou un croquis aide, mais n'est pas obligatoire."
+  - titre: "Nous choisissons"
+    texte: "Type de couteau, acier, bois du manche, finitions. Je vous envoie un devis avec le prix et le délai prévu."
+  - titre: "Je le fabrique"
+    texte: "Forge, trempe, ponçage, manche, affûtage. Je vous donne des nouvelles en cours de route."
+  - titre: "Il vous est remis"
+    texte: "Remis en main propre à Haubourdin ou expédié, selon ce qui vous arrange."
+titre_prix: "Prix indicatifs"
+fineprint: "Le prix final dépend des matériaux, de la taille et des finitions. Le délai dépend de la file de commandes : il est communiqué avec le devis."
+cta_mail: "Écrire à"
+insta_avant: "Vous préférez Instagram ? Écrivez à"
+---

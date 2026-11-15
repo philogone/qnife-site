@@ -21,3 +21,16 @@ npm run build    # génère dist/
 - Avant toute publication : `npm run build && npm run visual` doit répondre « Design identique aux références ».
 - Changement de design voulu : modifier, puis `npm run visual:update`, relire les captures, committer.
 - Icônes : `python scripts/make-icons.py`.
+
+## Modifier les textes
+
+Les textes sont dans `src/content/pages/`, un fichier Markdown par page (`accueil.md`, `couteaux.md`, `atelier.md`, `sur-mesure.md`, `contact.md`, `mentions-legales.md`, `404.md`).
+
+- Le bloc entre `---` en haut du fichier contient les textes courts : titres, intitulés, boutons, étapes, listes. Chaque ligne est `clé: valeur`. Mettre la valeur entre guillemets `"..."` si elle contient `:` ou commence par un caractère spécial.
+- Pour un titre sur deux lignes, écrire `\n` dans la valeur, par exemple `"Votre histoire,\nvotre couteau."`.
+- Les listes sont des tirets indentés sous la clé.
+- Le corps du fichier (sous le second `---`) contient les longs paragraphes, avec `## Titre` pour une section. Pour un retour à la ligne sans nouveau paragraphe, finir la ligne par `\`.
+- Les apostrophes restent droites (`'`) : le Markdown ne les transforme pas.
+- Le titre et la description (balise `<title>`, moteurs de recherche) sont les deux premières lignes de chaque fichier.
+- Les adresse, e-mail et prix viennent de `src/data/site.ts`, sauf dans les pages Mentions légales (écrits en dur dans le Markdown). Si l'un change, penser à mettre à jour les deux endroits.
+- Vérifier avant de publier : `npm run build`, puis `npm run visual`.

@@ -1,0 +1,6 @@
+---
+// Affiche un texte du Markdown en gardant les retours à la ligne voulus (\n dans le frontmatter).
+interface Props { text: string }
+const parts = Astro.props.text.split('\n');
+---
+{parts.map((p, i) => (<>{i > 0 && <br />}{p}</>))}
