@@ -18,6 +18,6 @@
   "devDependencies": {
     "pixelmatch": "^8.0.0",
     "pngjs": "^7.0.0",
-    "puppeteer-core": "^25.17.0"
+    "puppeteer-core": "^25.18.1"
   }
 }
